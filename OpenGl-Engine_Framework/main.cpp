@@ -7,10 +7,11 @@
 #include "Keyboard.h"
 #include "Game.h"
 
-Keyboard* kbd;
+Keyboard *kbd;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
+	//kbd->keys[key] = true;
 	if (key == GLFW_KEY_E && action == GLFW_PRESS)
 		std::cout << "Veer";
 }
@@ -46,6 +47,7 @@ int main()
 			game.Start();
 			glfwSwapBuffers(Window);
 			glfwPollEvents();
+			glfwSetKeyCallback(Window, key_callback);
 		}
 		//End
 		glfwTerminate();
