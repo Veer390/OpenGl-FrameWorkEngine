@@ -4,6 +4,9 @@
 #include "Graphics.h"
 #include "Keyboard.h"
 
+/*Note - For checking if key is presses using the handle kbd please use use capital letters --donot use small letters the keycode is capital letters
+  example- kbd->CheckKeyIsPressed('A'); not kbd->CheckKeyIsPressed('a');  SECOND ONE WONT WORK
+  For Special keys like ARROWKEYS Please check keyboard.h for appropriate macros*/
 class Game
 {
 public:

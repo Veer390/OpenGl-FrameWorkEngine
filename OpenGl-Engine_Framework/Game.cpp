@@ -13,7 +13,11 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
-
+	char c = 'A';
+	if(kbd->CheckKeyIsPressed(int(c)))
+	{
+		std::cout << c << std::endl;
+	}
 }
 
 void Game::DrawFrame()

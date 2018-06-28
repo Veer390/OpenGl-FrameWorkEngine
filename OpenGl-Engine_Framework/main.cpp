@@ -7,13 +7,16 @@
 #include "Keyboard.h"
 #include "Game.h"
 
-Keyboard *kbd;
+//Gloabal Keyboard Object
+Keyboard keyboard;
+
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	//kbd->keys[key] = true;
+	keyboard.keys[key] = true;
+	std::cout << key << ",";
 	if (key == GLFW_KEY_E && action == GLFW_PRESS)
-		std::cout << "Veer";
+	std::cout << "TEst Condition Met E Key Pressed"<<std::endl;
 }
 int main()
 {
@@ -24,7 +27,7 @@ int main()
 
 	GLFWwindow* Window = glfwCreateWindow(Graphics::ScreenWidth, Graphics::ScreenHeight, "Test", 0, NULL);
 	Graphics gfx(Window);
-	Game game(gfx, kbd);
+	Game game(gfx, &keyboard);
 	
 	glfwMakeContextCurrent(Window);
 
@@ -33,7 +36,7 @@ int main()
 		std::cout << "Glew Did not initialize correctly " << std::endl;
 	}
 	else
-		std::cout << " Glfw Version = " << glGetString(GL_VERSION);
+		std::cout << " Glfw Version = " << glGetString(GL_VERSION)<<std::endl;
 
 	
 	glfwSwapInterval(1);
