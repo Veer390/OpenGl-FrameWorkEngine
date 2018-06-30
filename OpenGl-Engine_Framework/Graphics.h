@@ -4,7 +4,9 @@
 
 #include <iostream>
 
+#include "Texture.h"
 #include "Color.h"
+
 
  class Graphics
 {
@@ -17,7 +19,10 @@ public:
 	}
 
 public:
+	//Draw Pixel
 	void PutPixel(int x, int y, Color c);
+	//Draws A Texture Onto The Screen
+	void DrawTexture(int x, int y,Texture tex);
 
 public:
 	GLFWwindow * WindowReference;

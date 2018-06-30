@@ -61,7 +61,17 @@ void Graphics::PutPixel(int x, int y, Color c)
 	glEnd();
 }
 
+//Draws A Texture onto The Screen At A Given location
+void Graphics::DrawTexture(int x, int y,Texture tex)
+{
+	for (int sx = 0; sx < tex.GetWidth(); sx++)
+	{
+		for (int sy = 0; sy < tex.GetHeight(); sy++)
+		{
+			PutPixel(x + sx, y + sy, tex.GetPixel(sx, sy));
+		}
+	}
+}
 
 
 
-//PUTPIXEL ENTIRELY WRONG FIX THE NORMALIZATION PART

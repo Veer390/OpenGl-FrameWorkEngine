@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Texture.h"
 
 /*Note - For checking if key is presses using the handle kbd please use use capital letters --donot use small letters the keycode is capital letters
   example- kbd->CheckKeyIsPressed('A'); not kbd->CheckKeyIsPressed('a');  SECOND ONE WONT WORK
@@ -13,7 +14,8 @@ public:
 	Game(Graphics& gfx,Keyboard* kbd)
 		:
 		gfx(gfx),
-		kbd(kbd)
+		kbd(kbd),
+		tex(Texture(30,30))
 	{}
 
 
@@ -32,7 +34,7 @@ private:
 	void DrawFrame();
 
 	//User Defined Functions
-
+	Texture tex;
 
 	//
 

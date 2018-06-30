@@ -7,7 +7,7 @@ class Color {
 	friend class Graphics;
 
 public:
-	Color() = delete;
+	Color() = default;
 	Color(int r, int g, int b)
 		:
 		r(r),
@@ -16,9 +16,9 @@ public:
 	{}
 
 private:
-	int r;
-	int g;
-	int b;
+	int r=0;
+	int g=0;
+	int b=0;
 
 public:
 	inline int GetR()
