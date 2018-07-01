@@ -18,7 +18,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	if (key == GLFW_KEY_E && action == GLFW_PRESS)
 	std::cout << "TEst Condition Met E Key Pressed"<<std::endl;
 }
-int main()
+int main(int argc, char **argv)
 {
 	if (!glfwInit())
 	{
@@ -40,7 +40,7 @@ int main()
 
 	
 	glfwSwapInterval(1);
-	
+		
 	while (!glfwWindowShouldClose(Window))
 	{
 		//GameLoop

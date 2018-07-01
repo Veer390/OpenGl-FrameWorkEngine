@@ -13,26 +13,46 @@ public:
 	Texture(int Width, int Height)
 		:
 		Width(Width),
-		Height(Height)
-	{
-		pPixels = new Color[Width*Height];
-	}
+		Height(Height),
+		pPixels(new Color[Width*Height])
+	{}
+
 
 	Texture(const Texture& rhs)
 		:
-		Width(rhs.Width),
-		Height(rhs.Height)
+		Texture(rhs.Width,rhs.Height)
 	{
-		pPixels = new Color[Width*Height];
-		for (int i = 0; i < Width; i++)
+		const int nPixels = Width * Height;
+		for (int i = 0; i < nPixels; i++)
 		{
-			for (int j = 0; j < Height; j++)
-			{
-				PutPixel(i, j, rhs.GetPixel(i, j));
-			}
+			pPixels[i] = rhs.pPixels[i];
 		}
 	}
 
+	//Loading Texture from File...
+	Texture(std::string FilePath);
+	~Texture()
+	{
+		delete[] pPixels;
+		pPixels = nullptr;
+	}
+
+	Texture & operator=(const Texture & rhs)
+	{
+		Width = rhs.Width;
+		Height = rhs.Height;
+
+		delete[]pPixels;
+
+		pPixels = new Color[Width*Height];
+		const int nPixels = Width * Height;
+		for (int i = 0; i < nPixels; i++)
+		{
+			pPixels[i] = rhs.pPixels[i];
+		}
+
+		return *this;
+	}
 private:
 	int Width;
 	int Height;

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Window.h"
 #include "Graphics.h"
 #include "Keyboard.h"
@@ -15,7 +16,9 @@ public:
 		:
 		gfx(gfx),
 		kbd(kbd),
-		tex(Texture(30,30))
+		tex(Texture(30,30)),
+		Dib("dib.bmp"),
+		C(255,255,255)
 	{}
 
 
@@ -24,6 +27,7 @@ private:
 	Graphics gfx;
 	Keyboard* kbd;
 	//User Defined Variables
+	bool Forward = true;
 
 
 	//
@@ -35,7 +39,10 @@ private:
 
 	//User Defined Functions
 	Texture tex;
+	Texture Dib;
 
+	void incrementColor(Color& col);
+	Color C;
 	//
 
 public:

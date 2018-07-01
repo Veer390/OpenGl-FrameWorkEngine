@@ -45,15 +45,18 @@ public:
 private:
 	inline float GetNormaliedR()
 	{
-		return r/255;
+		float R = r;
+		return R/255;
 	}
 	inline float GetNormaliedG()
 	{
-		return g/255;
+		float G = g;
+		return G/255;
 	}
 	inline float GetNormaliedB()
 	{
-		return b/255;
+		float B = b;
+		return B/255;
 	}
 
 	

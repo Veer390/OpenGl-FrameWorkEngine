@@ -59,14 +59,18 @@ void Graphics::PutPixel(int x, int y, Color c)
 	glVertex2f(point.x,point.y);
 	//glVertex2f(x / Graphics::ScreenWidth, y / Graphics::ScreenHeight);
 	glEnd();
+	
 }
 
 //Draws A Texture onto The Screen At A Given location
 void Graphics::DrawTexture(int x, int y,Texture tex)
 {
-	for (int sx = 0; sx < tex.GetWidth(); sx++)
+	const int width = tex.GetWidth();
+	const int height = tex.GetHeight();
+
+	for (int sy = 0; sy < height; sy++)
 	{
-		for (int sy = 0; sy < tex.GetHeight(); sy++)
+		for (int sx = 0; sx < width; sx++)
 		{
 			PutPixel(x + sx, y + sy, tex.GetPixel(sx, sy));
 		}

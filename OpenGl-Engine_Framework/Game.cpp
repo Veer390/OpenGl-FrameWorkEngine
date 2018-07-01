@@ -1,5 +1,27 @@
 #include "Game.h"
+#include <Windows.h>
 
+
+int counter = 1;
+void Game::incrementColor(Color & col)
+{
+	if (col.GetR() >= 255)
+	{
+		Forward = false;
+	}
+	if (col.GetR() <= 0)
+	{
+		Forward = true;
+	}
+	if(Forward==true)
+	{
+		col.SetRGB(col.GetR() + 1, col.GetG() + 1, col.GetB() + 1);
+	}
+	if(Forward==false)
+	{
+		col.SetRGB(col.GetR() -1 , col.GetG() - 1, col.GetB() - 1);
+	}
+}
 void Game::main()
 {
 	if(glfwWindowShouldClose(gfx.WindowReference))
@@ -13,41 +35,46 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
-	Color b(255, 255, 210);
-	for (int i = 0; i < 30; i++)
+	gfx.DrawTexture(30, 40, Dib);
+	/*//gfx.PutPixel(30, 20, Color(254, 252, 251));
+	for (int i = 0; i < 1280; i++)
 	{
-		for (int j = 0; j < 30; j++)
+		for (int j = 0; j < 720; j++)
 		{
-			tex.PutPixel(i, j, b);
+			gfx.PutPixel(i, j, C);
+			//std::cout << i << "," << j << "," << "Color: " << C.GetR() << "," << C.GetG() << "," << C.GetB() << "," << std::endl;
+			incrementColor(C);
+			//Sleep(10);
+
 		}
 	}
-	char c = 'A';
-	if(kbd->CheckKeyIsPressed(int(c)))
+	C.SetRGB(255, 255, 255);
+	std::cout << "Frame Number : " << counter << std::endl;
+	counter++;
+	/*int X = 0;
+	int Line = 40;
+	for (int i = 0; i < 100; i++)
 	{
-		std::cout << c << std::endl;
+	
+		gfx.PutPixel(i, Line, C);
+		int r = C.GetR()-1;
+		int g = C.GetG()-1;
+		int b = C.GetB()-1;
+		std::cout << C.GetR() << "," << C.GetG() << "," << C.GetB() << "," << std::endl;
+		std::cout<<i<<","<<"40"<<","<<"Color "<< C.GetR() << "," << C.GetG() << "," << C.GetB() << "," << std::endl;
+		Sleep(100);
 	}
+	if(Line<720)
+	Line++;
+	incrementColor(C);*/
+		
 }
 
 void Game::DrawFrame()
 {
-	gfx.DrawTexture(100, 100, tex);
-	Color c(0.0f, 0.5f, 0.7f);
-	Color b(255, 255, 210);
-	/*//gfx.PutPixel(100, 0, b);
-	/*for (int i = 0; i < 1280; i++)
-	{
-		for (int j = 0; j < 720; j++)
-		{
-			gfx.PutPixel(i, j, b);
-		}
-	}*/
-	/*for (int i = 0; i < 1280; i++)
-	{
-		gfx.PutPixel(i, 720, b);
-	}
-	/*for (int j = 0; j < 720; j++)
-	{
-		gfx.PutPixel(0, j, b);
-	}*/
+	
 
 }
+
+
+
