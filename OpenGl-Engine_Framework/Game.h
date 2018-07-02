@@ -17,7 +17,7 @@ public:
 		gfx(gfx),
 		kbd(kbd),
 		tex(Texture(30,30)),
-		Dib("dib.bmp"),
+		Dib("Textures/dib.bmp"),
 		C(255,255,255)
 	{}
 

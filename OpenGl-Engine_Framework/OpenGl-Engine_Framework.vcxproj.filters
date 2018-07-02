@@ -16,6 +16,9 @@
     <Filter Include="Graphics">
       <UniqueIdentifier>{63c87374-7162-45e0-9237-f8d9abfb4468}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data Structures">
+      <UniqueIdentifier>{e32c6029-474d-49bb-b47b-f85bc8614e2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -46,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="rectangle.h">
+      <Filter>Data Structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
