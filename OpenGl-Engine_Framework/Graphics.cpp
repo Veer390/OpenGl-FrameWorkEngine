@@ -142,7 +142,7 @@ void Graphics::print(vector ScreenLocation,std::string Test, Font * font)
 		else
 		{
 			DataStructure::Rectangle rect = font->GetCharacter(ch);
-			DrawTexture(TempScreenLocation, rect, font->MainText);
+			DrawTextureWithAlpha(TempScreenLocation, rect, font->MainText);
 			TempScreenLocation.x = TempScreenLocation.x + font->DiamensionsPerCharacter.x;
 		}
 	}

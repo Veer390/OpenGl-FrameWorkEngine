@@ -39,6 +39,8 @@ void Game::ComposeFrame()
 	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 
 	gfx.print({ 20,30 }, "Empyrean Veer \nEmhyr", &fnt);
+
+	gfx.PutPixel(250, 250, Color(255, 255, 255));
 }
 
 void Game::DrawFrame()

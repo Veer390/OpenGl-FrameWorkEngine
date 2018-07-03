@@ -3,10 +3,11 @@
 Font::Font(std::string FontName, std::string TexPath, bool IsMonoSpace, vector MainDiamensions, int WidthPerCharacter, int HeightPerCharacter)
 	:
 	FontName(FontName),
-	MainText(TexPath),
+	MainText(TexPath,Color(0,0,0)),
 	IsMonoSpace(IsMonoSpace),
 	MainDiamensions(MainDiamensions),
-	DiamensionsPerCharacter({WidthPerCharacter,HeightPerCharacter})
+	DiamensionsPerCharacter({WidthPerCharacter,HeightPerCharacter}),
+	AlphaColor(0,0,0)
 {
 	if (IsMonoSpace)
 	{
@@ -22,7 +23,8 @@ Font::Font(std::string FontName, Texture Tex, bool IsMonoSpace, vector MainDiame
 	MainText(Tex),
 	IsMonoSpace(IsMonoSpace),
 	MainDiamensions(MainDiamensions),
-	DiamensionsPerCharacter({ WidthPerCharacter,HeightPerCharacter })
+	DiamensionsPerCharacter({ WidthPerCharacter,HeightPerCharacter }),
+	AlphaColor(0,0,0)
 {
 	if (IsMonoSpace)
 	{
@@ -31,6 +33,25 @@ Font::Font(std::string FontName, Texture Tex, bool IsMonoSpace, vector MainDiame
 		NumberOfCharacters = TotalArea / AreaPerCharacter;
 	}
 }
+
+Font::Font(std::string FontName, std::string TexPath, bool IsMonoSpace, vector MainDiamensions, Color AlphaColor, int WidthPerCharacter, int HeightPerCharacter)
+	:
+	FontName(FontName),
+	MainText(TexPath,AlphaColor),
+	IsMonoSpace(IsMonoSpace),
+	MainDiamensions(MainDiamensions),
+	DiamensionsPerCharacter({ WidthPerCharacter,HeightPerCharacter }),
+	AlphaColor(AlphaColor)
+{
+	if (IsMonoSpace)
+	{
+		int TotalArea = MainDiamensions.x*MainDiamensions.y;
+		int AreaPerCharacter = DiamensionsPerCharacter.x*DiamensionsPerCharacter.y;
+		NumberOfCharacters = TotalArea / AreaPerCharacter;
+	}
+}
+
+
 
 DataStructure::Rectangle Font::GetCharacter(char character)
 {
