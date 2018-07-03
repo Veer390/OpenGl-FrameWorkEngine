@@ -36,9 +36,9 @@ void Game::main()
 void Game::ComposeFrame()
 {
 	//DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
-	gfx.DrawTextureWithAlpha(30, 20, Dib);
+	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 
-	//gfx.print({ 20,30 }, "Empyrean", &fnt);
+	gfx.print({ 20,30 }, "Empyrean Veer \nEmhyr", &fnt);
 }
 
 void Game::DrawFrame()

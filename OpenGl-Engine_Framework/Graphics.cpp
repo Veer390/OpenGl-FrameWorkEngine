@@ -131,11 +131,20 @@ void Graphics::DrawTextureWithAlpha(vector ScreenCoordinates, DataStructure::Rec
 
 void Graphics::print(vector ScreenLocation,std::string Test, Font * font)
 {
+	vector TempScreenLocation = ScreenLocation;
 	for (char ch : Test)
 	{
-		DataStructure::Rectangle rect = font->GetCharacter(ch);
-		DrawTexture(ScreenLocation, rect, font->MainText);
-		ScreenLocation.x = ScreenLocation.x + font->DiamensionsPerCharacter.x;
+		if (ch == '\n')
+		{
+			TempScreenLocation.x = ScreenLocation.x;
+			TempScreenLocation.y = TempScreenLocation.y + font->DiamensionsPerCharacter.y;
+		}
+		else
+		{
+			DataStructure::Rectangle rect = font->GetCharacter(ch);
+			DrawTexture(TempScreenLocation, rect, font->MainText);
+			TempScreenLocation.x = TempScreenLocation.x + font->DiamensionsPerCharacter.x;
+		}
 	}
 }
 
