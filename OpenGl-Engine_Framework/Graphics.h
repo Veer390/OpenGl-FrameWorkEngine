@@ -30,7 +30,7 @@ public:
 	void DrawTexture(vector ScreenCoordinates, DataStructure::Rectangle TextureCoordinates, Texture tex);
 	
 	//Writes A String Onto the Screen
-	//void print(std::string Test,Font* font,vector Location);
+	void print(vector ScreenLocation,std::string Test,Font* font);
 
 public:
 	GLFWwindow * WindowReference;

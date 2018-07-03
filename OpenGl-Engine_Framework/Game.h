@@ -4,6 +4,7 @@
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "Texture.h"
+#include "Fonts.h"
 
 /*Note - For checking if key is presses using the handle kbd please use use capital letters --donot use small letters the keycode is capital letters
   example- kbd->CheckKeyIsPressed('A'); not kbd->CheckKeyIsPressed('a');  SECOND ONE WONT WORK
@@ -17,6 +18,7 @@ public:
 		kbd(kbd),
 		tex(Texture(30,30)),
 		Dib("Textures/dib.bmp"),
+		fnt("StandradFont", "Fonts/Standrad.bmp", true, {416,72},13,24),
 		C(255,255,255)
 	{}
 
@@ -39,7 +41,7 @@ private:
 	//User Defined Functions
 	Texture tex;
 	Texture Dib;
-
+	Font fnt;
 	void incrementColor(Color& col);
 	Color C;
 	//

@@ -35,8 +35,10 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
-	DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
-	gfx.DrawTexture({ 30,30 }, rec, Dib);
+	//DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
+	//gfx.DrawTexture({ 30,30 }, rec, Dib);
+
+	gfx.print({ 20,30 }, "Empyrean", &fnt);
 }
 
 void Game::DrawFrame()
