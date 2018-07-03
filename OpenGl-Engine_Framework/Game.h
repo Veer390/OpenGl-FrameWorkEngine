@@ -17,7 +17,7 @@ public:
 		gfx(gfx),
 		kbd(kbd),
 		tex(Texture(30,30)),
-		Dib("Textures/dib.bmp"),
+		Dib("Textures/dib.bmp",Color(255,255,255)),
 		fnt("StandradFont", "Fonts/Standrad.bmp", true, {416,72},13,24),
 		C(255,255,255)
 	{}

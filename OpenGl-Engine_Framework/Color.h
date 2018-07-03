@@ -21,6 +21,17 @@ private:
 	int b=0;
 
 public:
+	bool operator!=(Color rhs)
+	{
+		if (this->r == rhs.r
+			&& this->g == rhs.g
+			&& this->b == rhs.b)
+		{
+			return false;
+		}
+		else
+			return true;
+	}
 	inline int GetR()
 	{
 		return r;

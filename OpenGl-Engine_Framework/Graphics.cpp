@@ -93,6 +93,42 @@ void Graphics::DrawTexture(vector ScreenCoordinates, DataStructure::Rectangle Te
 	}
 }
 
+void Graphics::DrawTextureWithAlpha(int x, int y, Texture tex)
+{
+	const int width = tex.GetWidth();
+	const int height = tex.GetHeight();
+
+	for (int sy = 0; sy < height; sy++)
+	{
+		for (int sx = 0; sx < width; sx++)
+		{
+			if (tex.GetPixel(sx, sy) != tex.GetAlphaChannel())
+			{
+				PutPixel(x + sx, y + sy, tex.GetPixel(sx, sy));
+			}
+		}
+	}
+}
+
+void Graphics::DrawTextureWithAlpha(vector ScreenCoordinates, DataStructure::Rectangle TextureCoordinates, Texture tex)
+{
+	int Startx = TextureCoordinates.TL.x;
+	int Stopx = TextureCoordinates.TR.x;
+	int Starty = TextureCoordinates.TL.y;
+	int Stopy = TextureCoordinates.BL.y;
+
+	for (int i = Startx, sx = 0; i < Stopx; i++, sx++)
+	{
+		for (int j = Starty, sy = 0; j < Stopy; j++, sy++)
+		{
+			if (tex.GetPixel(sx, sy) != tex.GetAlphaChannel())
+			{
+				PutPixel(ScreenCoordinates.x + sx, ScreenCoordinates.y + sy, tex.GetPixel(i, j));
+			}
+		}
+	}
+}
+
 void Graphics::print(vector ScreenLocation,std::string Test, Font * font)
 {
 	for (char ch : Test)

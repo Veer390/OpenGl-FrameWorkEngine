@@ -14,10 +14,18 @@ public:
 		:
 		Width(Width),
 		Height(Height),
-		pPixels(new Color[Width*Height])
+		pPixels(new Color[Width*Height]),
+		AlphaColor(0,0,0)
 	{}
 
-
+	Texture(int Width,int Height,Color AlphaColor)
+		:
+		Width(Width),
+		Height(Height),
+		pPixels(new Color[Width*Height]),
+		AlphaColor(AlphaColor)
+	{}
+	
 	Texture(const Texture& rhs)
 		:
 		Texture(rhs.Width,rhs.Height)
@@ -31,6 +39,8 @@ public:
 
 	//Loading Texture from File...
 	Texture(std::string FilePath);
+	Texture(std::string FilePath,Color AlphaColor);
+
 	~Texture()
 	{
 		delete[] pPixels;
@@ -53,10 +63,13 @@ public:
 
 		return *this;
 	}
+
 private:
 	int Width;
 	int Height;
 
+	//Alpha Channel value
+	Color AlphaColor;
 	Color* pPixels;
     
 public:
@@ -67,5 +80,6 @@ public:
 	 //helper Functions
 	 int GetHeight();
 	 int GetWidth();
+	 Color GetAlphaChannel();
 
 };

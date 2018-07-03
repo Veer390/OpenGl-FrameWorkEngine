@@ -28,6 +28,8 @@ public:
 	//Draws A Texture Onto The Screen
 	void DrawTexture(int x, int y,Texture tex);
 	void DrawTexture(vector ScreenCoordinates, DataStructure::Rectangle TextureCoordinates, Texture tex);
+	void DrawTextureWithAlpha(int x, int y, Texture tex);
+	void DrawTextureWithAlpha(vector ScreenCoordinates, DataStructure::Rectangle TextureCoordinates, Texture tex);
 	
 	//Writes A String Onto the Screen
 	void print(vector ScreenLocation,std::string Test,Font* font);
