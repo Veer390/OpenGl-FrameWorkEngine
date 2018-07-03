@@ -52,6 +52,8 @@ Color Texture::GetPixel(int x, int y) const
 	return pPixels[y*Width+x];
 }
 
+
+
 int Texture::GetHeight()
 {
 	return Height;

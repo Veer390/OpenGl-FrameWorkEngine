@@ -77,5 +77,21 @@ void Graphics::DrawTexture(int x, int y,Texture tex)
 	}
 }
 
+void Graphics::DrawTexture(vector ScreenCoordinates, DataStructure::Rectangle TextureCoordinates, Texture tex)
+{
+	int Startx = TextureCoordinates.TL.x;
+	int Stopx = TextureCoordinates.TR.x;
+	int Starty = TextureCoordinates.TL.y;
+	int Stopy = TextureCoordinates.BL.y;
+
+	for (int i = Startx; i < Stopx; i++)
+	{
+		for (int j = Starty; j < Stopy; j++)
+		{
+			PutPixel(ScreenCoordinates.x + i, ScreenCoordinates.y + j, tex.GetPixel(i, j));
+		}
+	}
+}
+
 
 

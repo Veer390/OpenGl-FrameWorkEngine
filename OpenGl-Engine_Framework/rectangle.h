@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 #include "Vector.h"
 
@@ -64,4 +65,20 @@ public:
 };
 
 typedef Rect_<int> RectI;
-typedef Rect_<float> RectF
+typedef Rect_<float> RectF;
+
+namespace DataStructure
+{
+	struct Rectangle
+	{
+		Rectangle(vector TL, vector TR, vector BL, vector BR)
+			:
+			TL(TL),
+			TR(TR),
+			BL(BL),
+			BR(BR)
+		{}
+		vector TL, TR, BL, BR;
+
+	};
+}

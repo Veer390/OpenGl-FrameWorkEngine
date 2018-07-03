@@ -4,7 +4,10 @@
 
 #include <iostream>
 
+#include "Vector.h"
+#include "rectangle.h"
 #include "Texture.h"
+#include "Fonts.h"
 #include "Color.h"
 
 
@@ -21,8 +24,13 @@ public:
 public:
 	//Draw Pixel
 	void PutPixel(int x, int y, Color c);
+	
 	//Draws A Texture Onto The Screen
 	void DrawTexture(int x, int y,Texture tex);
+	void DrawTexture(vector ScreenCoordinates, DataStructure::Rectangle TextureCoordinates, Texture tex);
+	
+	//Writes A String Onto the Screen
+	//void print(std::string Test,Font* font,vector Location);
 
 public:
 	GLFWwindow * WindowReference;

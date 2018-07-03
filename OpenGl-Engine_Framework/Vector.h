@@ -15,5 +15,6 @@ struct Vector
 		temp.y = this->y + rhs.y;
 		return temp;
 	}
-	typedef Vector<int> vector;
+	
 };
+typedef Vector<int> vector;

@@ -35,8 +35,8 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
-	gfx.DrawTexture(30, 30, Dib);
-		
+	DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
+	gfx.DrawTexture({ 30,30 }, rec, Dib);
 }
 
 void Game::DrawFrame()
