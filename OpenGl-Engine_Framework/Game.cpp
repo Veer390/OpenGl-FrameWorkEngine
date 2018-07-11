@@ -35,12 +35,16 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
+	int n=MainRenderer.SetNewTexture(Dib);
+	int m = MainRenderer.SetNewTexture(Dib);
+	MainRenderer.DrawTexture(m, { 30,20 });
+	MainRenderer.DrawTexture(n, { 50,60 });
 	//DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
 	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 
-	gfx.print({ 20,30 }, "Empyrean Veer \nEmhyr", &fnt);
+	//gfx.print({ 20,30 }, "Empyrean Veer \nEmhyr", &fnt);
 
-	gfx.PutPixel(250, 250, Color(255, 255, 255));
+	//gfx.PutPixel(250, 250, Color(255, 255, 255));
 }
 
 void Game::DrawFrame()

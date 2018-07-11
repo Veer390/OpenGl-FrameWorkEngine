@@ -3,13 +3,13 @@
 
 #include <iostream>
 
+#include "Renderer.h"
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "Game.h"
 
 //Gloabal Keyboard Object
 Keyboard keyboard;
-
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -27,7 +27,8 @@ int main(int argc, char **argv)
 
 	GLFWwindow* Window = glfwCreateWindow(Graphics::ScreenWidth, Graphics::ScreenHeight, "Test", 0, NULL);
 	Graphics gfx(Window);
-	Game game(gfx, &keyboard);
+	RendererNS::Renderer MainRenderer(&gfx);
+	Game game(gfx, &keyboard,MainRenderer);
 	
 	glfwMakeContextCurrent(Window);
 

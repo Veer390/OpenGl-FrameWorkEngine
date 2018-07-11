@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Renderer.h"
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "Texture.h"
@@ -12,9 +13,10 @@
 class Game
 {
 public:
-	Game(Graphics& gfx,Keyboard* kbd)
+	Game(Graphics& gfx,Keyboard* kbd,RendererNS::Renderer& MainRenderer)
 		:
 		gfx(gfx),
+		MainRenderer(std::move(MainRenderer)),
 		kbd(kbd),
 		tex(Texture(30,30)),
 		Dib("Textures/dib.bmp",Color(255,255,255)),
@@ -29,7 +31,7 @@ private:
 	Keyboard* kbd;
 	//User Defined Variables
 	bool Forward = true;
-
+	RendererNS::Renderer MainRenderer;
 
 	//
 

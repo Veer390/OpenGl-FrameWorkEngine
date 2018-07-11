@@ -36,6 +36,9 @@
     <ClCompile Include="Fonts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -60,6 +63,9 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Fonts.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
       <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
