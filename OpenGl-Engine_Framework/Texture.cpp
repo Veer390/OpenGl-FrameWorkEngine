@@ -86,9 +86,9 @@ void Texture::PutPixel(int x, int y, Color Pixel)
 //Gets A Pixel From The image Surface
 Color Texture::GetPixel(int x, int y) 
 {
-	std::string ToWrite = "x : " + std::to_string(x) + " y : " + std::to_string(y) + " y*Width+x : " + std::to_string(y * Width + x) + "\n";
-	lgfile.WriteToFile(ToWrite);
-	std::cout << "x :" << x << " y:" << y << " y*Width+x : " << y * Width + x << std::endl;
+	//std::string ToWrite = "x : " + std::to_string(x) + " y : " + std::to_string(y) + " y*Width+x : " + std::to_string(y * Width + x) + "\n";
+	//lgfile.WriteToFile(ToWrite);
+	//std::cout << "x :" << x << " y:" << y << " y*Width+x : " << y * Width + x << std::endl;
 	return pPixels[y*Width + x];
 }
 

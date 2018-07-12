@@ -46,10 +46,13 @@ void Game::ComposeFrame()
 	//MainRenderer.DrawTexture(m, { 30,20 });
 	//MainRenderer.DrawTexture(n, { 50,60 });
 
-	int o = MainRenderer.SetNewFont(fnt);
-	//gfx.print({ 20,30 }, "Veer", &fnt);
+	//int o = MainRenderer.SetNewFont(fnt);
+	gfx.print({ 20,30 }, "!", &fnt);
 
-	MainRenderer.DrawFont(o, { 30,20 }, "Aba");
+	//int a = MainRenderer.SetNewTexture(Dib);
+	//MainRenderer.DrawTexture(a, { 20,30 });
+
+	//MainRenderer.DrawFont(o, { 30,20 }, "Aba");
 	//DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
 	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 

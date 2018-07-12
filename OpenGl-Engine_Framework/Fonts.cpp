@@ -55,6 +55,25 @@ Font::Font(std::string FontName, std::string TexPath, bool IsMonoSpace, vector M
 
 DataStructure::Rectangle Font::GetCharacter(char character)
 {
+int yoffset = 0;
+int offset = int(character) - 32;
+if (offset > 32 && offset <= 64)
+{
+yoffset = DiamensionsPerCharacter.y;
+}
+else if (offset > 64 && offset <= 96)
+{
+	offset = offset - 32;
+    yoffset = DiamensionsPerCharacter.y * 2;
+}
+DataStructure::Rectangle CharacterImage({ offset*DiamensionsPerCharacter.x,yoffset },
+	                                    { (offset*DiamensionsPerCharacter.x) + DiamensionsPerCharacter.x,yoffset },
+                                        { offset*DiamensionsPerCharacter.x, yoffset+DiamensionsPerCharacter.y }, 
+	                                    { (offset*DiamensionsPerCharacter.x) + DiamensionsPerCharacter.x,yoffset+DiamensionsPerCharacter.y });
+return CharacterImage;
+}
+/*DataStructure::Rectangle Font::GetCharacter(char character)
+{
 	int yoffset = 0;
 	int offset = int(character) - 32;
 	if (offset > 32 && offset <= 64)
@@ -68,6 +87,6 @@ DataStructure::Rectangle Font::GetCharacter(char character)
 	DataStructure::Rectangle CharacterImage({ offset*DiamensionsPerCharacter.x,0+yoffset }, { (offset*DiamensionsPerCharacter.x) + DiamensionsPerCharacter.x,0+yoffset },
 		{ offset*DiamensionsPerCharacter.x,DiamensionsPerCharacter.y+ yoffset }, { (offset*DiamensionsPerCharacter.x) + DiamensionsPerCharacter.x,DiamensionsPerCharacter.y+ yoffset });
 	return CharacterImage;
-}
+}*/
 
 

@@ -29,6 +29,11 @@ public:
 		int WidthPerCharacter, int HeightPerCharacter);
 	//The Other Constructor comes loaded with a texture so need for an alpha color
 
+	//Destructor For Font
+	~Font()
+	{
+		MainText.~Texture();
+	}
 private:
 	Color AlphaColor;
 	bool IsMonoSpace = true;

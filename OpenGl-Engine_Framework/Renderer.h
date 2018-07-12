@@ -26,6 +26,19 @@ namespace RendererNS
 		//Cannot be constructed without graphics
 		Renderer() = delete;
 
+		//Destructor
+		~Renderer()
+		{
+			for (auto i : Textures)
+			{
+				i.~Texture();
+			}
+			for (auto i : Fonts)
+			{
+				i.~Font();
+			}
+		}
+
 	private:
 		Graphics * gfx;
 		std::vector<Texture> Textures;
