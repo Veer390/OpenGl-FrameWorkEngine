@@ -47,8 +47,8 @@ void Game::ComposeFrame()
 	//MainRenderer.DrawTexture(n, { 50,60 });
 
 	//int o = MainRenderer.SetNewFont(fnt);
-	gfx.print({ 20,30 }, "!", &fnt);
-
+	gfx.print({ 20,30 }, " 8Ph!9Qi\n:Rj#; Sk$<Tl %= Um\n & >Vn'?Wo(@Xp)AYq*BZr+C[s,\nD\t-E]u.F^v/G_w0H`x1\nIay2Jbz3Kc{4Ld|5\nMe}6Nf~7Og", &fnt);
+	//gfx.print({ 20,30 }, "k",&fnt);
 	//int a = MainRenderer.SetNewTexture(Dib);
 	//MainRenderer.DrawTexture(a, { 20,30 });
 

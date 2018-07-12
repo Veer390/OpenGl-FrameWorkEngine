@@ -57,14 +57,19 @@ DataStructure::Rectangle Font::GetCharacter(char character)
 {
 int yoffset = 0;
 int offset = int(character) - 32;
-if (offset > 32 && offset <= 64)
+if (offset >= 0 && offset <= 32)
 {
-yoffset = DiamensionsPerCharacter.y;
+	yoffset = 0;//DiamensionsPerCharacter.y;
+}
+else if (offset > 32 && offset <= 64)
+{
+	offset = offset - 32;
+    yoffset = DiamensionsPerCharacter.y;
 }
 else if (offset > 64 && offset <= 96)
 {
-	offset = offset - 32;
-    yoffset = DiamensionsPerCharacter.y * 2;
+	offset = offset - 64;
+	yoffset = DiamensionsPerCharacter.y * 2;
 }
 DataStructure::Rectangle CharacterImage({ offset*DiamensionsPerCharacter.x,yoffset },
 	                                    { (offset*DiamensionsPerCharacter.x) + DiamensionsPerCharacter.x,yoffset },
