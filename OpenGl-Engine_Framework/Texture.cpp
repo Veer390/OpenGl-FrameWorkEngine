@@ -77,6 +77,17 @@ Texture::Texture(std::string FilePath, Color AlphaColor)
 	}
 }
 
+Texture::Texture(Texture && rhs)
+	:
+	Width(rhs.Width),
+	Height(rhs.Height),
+	AlphaColor(rhs.AlphaColor),
+	lgfile("Logs\TextureFileLogs.txt")
+{
+	pPixels = rhs.pPixels;
+	rhs.pPixels = nullptr;
+}
+
 //Sets A Pixel To The image Surface
 void Texture::PutPixel(int x, int y, Color Pixel)
 {

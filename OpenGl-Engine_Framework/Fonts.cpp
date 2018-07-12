@@ -51,6 +51,40 @@ Font::Font(std::string FontName, std::string TexPath, bool IsMonoSpace, vector M
 	}
 }
 
+Font::Font(const Font & rhs)
+	:
+	FontName(rhs.FontName),
+	MainText(rhs.MainText),
+	IsMonoSpace(rhs.IsMonoSpace),
+	MainDiamensions(rhs.MainDiamensions),
+	DiamensionsPerCharacter(rhs.DiamensionsPerCharacter),
+	AlphaColor(rhs.AlphaColor)
+{
+}
+
+Font::Font(Font && rhs)
+	:
+	FontName(rhs.FontName),
+	MainText(std::move(rhs.MainText)),
+	IsMonoSpace(rhs.IsMonoSpace),
+	MainDiamensions(rhs.MainDiamensions),
+	DiamensionsPerCharacter(rhs.DiamensionsPerCharacter),
+	AlphaColor(rhs.AlphaColor)
+{
+}
+
+
+Font Font::operator=(const Font & rhs)
+{
+	FontName = rhs.FontName;
+	MainText = rhs.MainText;
+	IsMonoSpace = rhs.IsMonoSpace;
+	MainDiamensions = rhs.MainDiamensions;
+	DiamensionsPerCharacter=rhs.DiamensionsPerCharacter;
+	AlphaColor=rhs.AlphaColor;
+	return *this;
+}
+
 
 
 DataStructure::Rectangle Font::GetCharacter(char character)

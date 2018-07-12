@@ -41,10 +41,13 @@ public:
 		}
 	}
 
-	Logger lgfile;
+	
 	//Loading Texture from File...
 	Texture(std::string FilePath);
 	Texture(std::string FilePath,Color AlphaColor);
+
+	//Texture Move Constructor
+	Texture(Texture&& rhs);
 
 	~Texture()
 	{
@@ -76,6 +79,9 @@ private:
 	//Alpha Channel value
 	Color AlphaColor;
 	Color* pPixels;
+
+	//Log files
+	Logger lgfile;
     
 public:
 

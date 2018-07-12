@@ -31,8 +31,11 @@ int RendererNS::Renderer::SetNewTexture(Texture NewTexture)
 int RendererNS::Renderer::SetNewFont(Font NewFont)
 {
 	int c = 0;
-	Fonts.emplace_back(NewFont);
-	auto end = Fonts.end();
+	//Fonts.insert(NewFont);
+	Fonts.push_back(std::move(NewFont));
+	return Fonts.size();
+
+	/*auto end = Fonts.end();
 	end--;
 	for (auto i = Fonts.begin();; i++)
 	{
@@ -42,7 +45,8 @@ int RendererNS::Renderer::SetNewFont(Font NewFont)
 			return c;
 		}
 		c++;
-	}
+	}*/
+	
 }
 
 void RendererNS::Renderer::DrawTexture(int RendererValue,vector ScreenCoordinates)

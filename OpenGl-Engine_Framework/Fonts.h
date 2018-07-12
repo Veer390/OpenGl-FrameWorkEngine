@@ -29,11 +29,20 @@ public:
 		int WidthPerCharacter, int HeightPerCharacter);
 	//The Other Constructor comes loaded with a texture so need for an alpha color
 
+	//Copy Constructor For Font
+	Font(const Font& rhs);
+
+	//Move Constructor For Font
+	Font(Font&& rhs);
+
+	//Assignment Operator for font
+	Font operator=(const Font& rhs);
+
 	//Destructor For Font
-	~Font()
-	{
-		MainText.~Texture();
-	}
+	//~Font()
+	//{
+	//	MainText.~Texture();
+	//}
 private:
 	Color AlphaColor;
 	bool IsMonoSpace = true;
