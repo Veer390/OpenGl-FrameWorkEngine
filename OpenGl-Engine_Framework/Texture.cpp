@@ -7,6 +7,8 @@
 
 
 Texture::Texture(std::string FilePath)
+	:
+	lgfile("Logs/TextureFileLogs.txt")
 {
 	std::ifstream file(FilePath,std::ios::binary);
 
@@ -42,7 +44,8 @@ Texture::Texture(std::string FilePath)
 
 Texture::Texture(std::string FilePath, Color AlphaColor)
 	:
-	AlphaColor(AlphaColor)
+	AlphaColor(AlphaColor),
+	lgfile("Logs/TextureFileLogs.txt")
 {
 	std::ifstream file(FilePath, std::ios::binary);
 
@@ -81,9 +84,12 @@ void Texture::PutPixel(int x, int y, Color Pixel)
 }
 
 //Gets A Pixel From The image Surface
-Color Texture::GetPixel(int x, int y) const
+Color Texture::GetPixel(int x, int y) 
 {
-	return pPixels[y*Width+x];
+	std::string ToWrite = "x : " + std::to_string(x) + " y : " + std::to_string(y) + " y*Width+x : " + std::to_string(y * Width + x) + "\n";
+	lgfile.WriteToFile(ToWrite);
+	std::cout << "x :" << x << " y:" << y << " y*Width+x : " << y * Width + x << std::endl;
+	return pPixels[y*Width + x];
 }
 
 

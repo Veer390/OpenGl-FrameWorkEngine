@@ -84,11 +84,20 @@ void Graphics::DrawTexture(vector ScreenCoordinates, DataStructure::Rectangle Te
 	int Starty = TextureCoordinates.TL.y;
 	int Stopy = TextureCoordinates.BL.y;
 
+	//std::cout << "StartX = " << Startx << std::endl;
+	//std::cout << "StopX=" << Stopx << std::endl;
 	for (int i = Startx,sx = 0; i < Stopx; i++,sx++)
 	{
 		for (int j = Starty,sy=0; j < Stopy; j++,sy++)
 		{
-			PutPixel(ScreenCoordinates.x + sx, ScreenCoordinates.y + sy, tex.GetPixel(i, j));
+			try
+			{
+				PutPixel(ScreenCoordinates.x + sx, ScreenCoordinates.y + sy, tex.GetPixel(i, j));
+			}
+			catch (...)
+			{
+				std::cout << "error";
+			}
 		}
 	}
 }

@@ -1,6 +1,12 @@
 #include "Game.h"
 #include <Windows.h>
 
+int c = 0;
+void DrawFrameNumber()
+{
+	std::cout << c << std::endl;
+	c++;
+}
 
 int counter = 1;
 void Game::incrementColor(Color & col)
@@ -35,10 +41,15 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
-	int n=MainRenderer.SetNewTexture(Dib);
-	int m = MainRenderer.SetNewTexture(Dib);
-	MainRenderer.DrawTexture(m, { 30,20 });
-	MainRenderer.DrawTexture(n, { 50,60 });
+	//int n=MainRenderer.SetNewTexture(Dib);
+	//int m = MainRenderer.SetNewTexture(Dib);
+	//MainRenderer.DrawTexture(m, { 30,20 });
+	//MainRenderer.DrawTexture(n, { 50,60 });
+
+	int o = MainRenderer.SetNewFont(fnt);
+	//gfx.print({ 20,30 }, "Veer", &fnt);
+
+	MainRenderer.DrawFont(o, { 30,20 }, "Aba");
 	//DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
 	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 
@@ -49,7 +60,7 @@ void Game::ComposeFrame()
 
 void Game::DrawFrame()
 {
-	
+	//DrawFrameNumber();
 
 }
 

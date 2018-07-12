@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "Logger.h"
+
 #include "Color.h"
 
 
@@ -15,7 +17,8 @@ public:
 		Width(Width),
 		Height(Height),
 		pPixels(new Color[Width*Height]),
-		AlphaColor(0,0,0)
+		AlphaColor(0,0,0),
+		lgfile("Logs/TextureFileLogs.txt")
 	{}
 
 	Texture(int Width,int Height,Color AlphaColor)
@@ -23,7 +26,8 @@ public:
 		Width(Width),
 		Height(Height),
 		pPixels(new Color[Width*Height]),
-		AlphaColor(AlphaColor)
+		AlphaColor(AlphaColor),
+		lgfile("Logs/TextureFileLogs.txt")
 	{}
 	
 	Texture(const Texture& rhs)
@@ -37,6 +41,7 @@ public:
 		}
 	}
 
+	Logger lgfile;
 	//Loading Texture from File...
 	Texture(std::string FilePath);
 	Texture(std::string FilePath,Color AlphaColor);
@@ -75,7 +80,7 @@ private:
 public:
 
 	void PutPixel(int x, int y, Color Pixel);
-	 Color GetPixel(int x, int y) const ;
+	 Color GetPixel(int x, int y);
 
 	 //helper Functions
 	 int GetHeight();

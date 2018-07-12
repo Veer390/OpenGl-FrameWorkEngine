@@ -46,6 +46,7 @@ private:
 	Font fnt;
 	void incrementColor(Color& col);
 	Color C;
+	int c = 1;
 	//
 
 public:

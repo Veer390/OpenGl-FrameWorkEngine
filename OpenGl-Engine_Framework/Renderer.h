@@ -38,6 +38,7 @@ namespace RendererNS
 
 		//Main Draw Functions
 		void DrawTexture(int RendererValue,vector ScreenCoordinates);
+		void DrawFont(int RenderValue, vector ScreenCoordinates,std::string Message);
 		
 	};
 }
