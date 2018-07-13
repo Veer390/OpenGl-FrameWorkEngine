@@ -7,6 +7,7 @@
 #include "rectangle.h"
 #include "Texture.h"
 #include "Fonts.h"
+#include "Line.h"
 #include "Graphics.h"
 
 namespace RendererNS
@@ -40,6 +41,7 @@ namespace RendererNS
 		}
 
 	private:
+		Line lnobj;
 		Graphics * gfx;
 		std::vector<Texture> Textures;
 		std::vector<Font> Fonts;
@@ -52,7 +54,12 @@ namespace RendererNS
 		//Main Draw Functions
 		void DrawTexture(int RendererValue,vector ScreenCoordinates);
 		void DrawFont(int RenderValue, vector ScreenCoordinates,std::string Message);
+		void DrawFontAutoLine(int RenderValue, vector ScreenCoordinates, std::string Message);
 		
+
+	private:
+		void print(vector ScreenLocation, std::string Test, Font * font);
+		void printAutoLine(vector ScreenLocation, std::string Test, Font * font);
 	};
 }
 

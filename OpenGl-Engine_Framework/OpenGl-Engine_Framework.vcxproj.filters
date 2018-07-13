@@ -19,6 +19,9 @@
     <Filter Include="Data Structures">
       <UniqueIdentifier>{e32c6029-474d-49bb-b47b-f85bc8614e2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\RendererSpecific Utilitites">
+      <UniqueIdentifier>{1e92f5e9-b9ca-4cfe-a151-a29538fde2bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Graphics\RendererSpecific Utilitites</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

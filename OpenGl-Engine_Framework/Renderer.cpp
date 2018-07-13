@@ -3,13 +3,15 @@
 
 RendererNS::Renderer::Renderer(Graphics* gfx)
 	:
-	gfx(gfx)
+	gfx(gfx),
+	lnobj(*gfx)
 {}
 
 //Moving The Renderer
 RendererNS::Renderer::Renderer(Renderer && rhs)
 	:
-	gfx(rhs.gfx)
+	gfx(rhs.gfx),
+	lnobj(*rhs.gfx)
 {
 	rhs.gfx = nullptr;
 }
@@ -57,4 +59,59 @@ void RendererNS::Renderer::DrawTexture(int RendererValue,vector ScreenCoordinate
 void RendererNS::Renderer::DrawFont(int RenderValue, vector ScreenCoordinates, std::string Message)
 {
 	gfx->print(ScreenCoordinates, Message, &(Fonts[RenderValue-1]));
+}
+
+void RendererNS::Renderer::DrawFontAutoLine(int RenderValue, vector ScreenCoordinates, std::string Message)
+{
+	printAutoLine(ScreenCoordinates, Message, &(Fonts[RenderValue - 1]));
+}
+
+
+
+void RendererNS::Renderer::print(vector ScreenLocation, std::string Test, Font * font)
+{
+	vector TempScreenLocation = ScreenLocation;
+	for (char ch : Test)
+	{
+		if (ch == '\n')
+		{
+			TempScreenLocation.x = ScreenLocation.x;
+			TempScreenLocation.y = TempScreenLocation.y + font->DiamensionsPerCharacter.y;
+		}
+		else
+		{
+			DataStructure::Rectangle rect = font->GetCharacter(ch);
+			gfx->DrawTexture(TempScreenLocation, rect, font->MainText);
+			TempScreenLocation.x = TempScreenLocation.x + font->DiamensionsPerCharacter.x;
+		}
+	}
+}
+
+void RendererNS::Renderer::printAutoLine(vector ScreenLocation, std::string Test, Font * font)
+{
+	vector TempScreenLocation = ScreenLocation;
+	for (char ch : Test)
+	{
+		if (ch == '\n')
+		{
+			TempScreenLocation.x = ScreenLocation.x;
+			TempScreenLocation.y = TempScreenLocation.y + font->DiamensionsPerCharacter.y;
+		}
+		else
+		{
+			DataStructure::Rectangle rect = font->GetCharacter(ch);
+			if (!lnobj.ShouldGotoNextLine(TempScreenLocation))
+			{
+				gfx->DrawTexture(TempScreenLocation, rect, font->MainText);
+				TempScreenLocation.x = TempScreenLocation.x + font->DiamensionsPerCharacter.x;
+			}
+			else
+			{
+				TempScreenLocation.x = ScreenLocation.x;
+				TempScreenLocation.y = TempScreenLocation.y + font->DiamensionsPerCharacter.y;
+				gfx->DrawTexture(TempScreenLocation, rect, font->MainText);
+				TempScreenLocation.x = TempScreenLocation.x + font->DiamensionsPerCharacter.x;
+			}
+		}
+	}
 }

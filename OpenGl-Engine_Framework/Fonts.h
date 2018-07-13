@@ -8,9 +8,15 @@
 #include "rectangle.h"
 #include "Texture.h"
 
+//Telling the Compiler that a class Called RendererNS::Renderer Exists
+namespace RendererNS
+{
+	class Renderer;
+}
 class Font
 {
 	friend class Graphics;
+	friend class RendererNS::Renderer;
 public:
 	//Default constructor is deleted
 	Font() = delete;

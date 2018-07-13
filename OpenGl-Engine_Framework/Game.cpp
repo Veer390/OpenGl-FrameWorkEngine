@@ -52,7 +52,8 @@ void Game::ComposeFrame()
 	//int a = MainRenderer.SetNewTexture(Dib);
 	//MainRenderer.DrawTexture(a, { 20,30 });
 
-	MainRenderer.DrawFont(o, { 30,20 }, "Aba");
+	//MainRenderer.DrawFont(o, { 30,20 }, "Aba");
+	MainRenderer.DrawFontAutoLine(o, { 30,20 }, "Emperor \n   Emhyr");
 	//DataStructure::Rectangle rec({ 0,0 }, { 204,0 }, { 0,247 }, { 204,247 });
 	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 

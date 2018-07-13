@@ -80,5 +80,7 @@ namespace DataStructure
 		{}
 		vector TL, TR, BL, BR;
 
+
+
 	};
 }
