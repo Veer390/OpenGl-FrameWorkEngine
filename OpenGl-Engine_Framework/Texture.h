@@ -1,12 +1,15 @@
 #pragma once
+#include <CIMG/CImg.h>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 
+
 #include "Logger.h"
 
 #include "Color.h"
+
 
 
 class Texture

@@ -45,6 +45,9 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -79,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="Line.h">
       <Filter>Graphics\RendererSpecific Utilitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Graphics\RendererSpecific Utilitites</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleAndIndex_Animation.h">
+      <Filter>Data Structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -45,6 +45,12 @@ public:
 		return b;
 	}
 
+	void SetColorFromCharData(unsigned char R, unsigned char G, unsigned char B)
+	{
+		r = static_cast<int>(R);
+		g = static_cast<int>(G);
+		b = static_cast<int>(B);
+	}
 
 	void SetRGB(int R, int G, int B)
 	{

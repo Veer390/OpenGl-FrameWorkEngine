@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-Texture::Texture(std::string FilePath)
+/*Texture::Texture(std::string FilePath)
 	:
 	lgfile("Logs/TextureFileLogs.txt")
 {
@@ -40,6 +40,38 @@ Texture::Texture(std::string FilePath)
 	}
 
 
+}*/
+
+Texture::Texture(std::string FilePath)
+	:
+	lgfile("Logs\TExtureFileLogs.txt")
+{
+	//Creating The Image
+	//cimg_library::CImg<unsigned char> Temp;
+	cimg_library::CImg<unsigned char> TempImage(FilePath.c_str());
+
+	//Image Initialization
+	Width = TempImage.width();
+	Height = TempImage.height();
+
+	pPixels = new Color[Width*Height];
+
+	for (int i = 0; i < Width; i++)
+	{
+		for (int j = 0; j < Height; j++)
+		{
+			//Get Pixel Data
+			unsigned char *r = TempImage.data(i, j, 0, 0);
+			unsigned char *g = TempImage.data(i, j, 0, 1);
+			unsigned char *b = TempImage.data(i, j, 0, 2);
+
+			//Creating Color Varaiable
+			Color color;
+			color.SetColorFromCharData(*r, *g, *b);
+			//Putting Pixel Into The Texture
+			PutPixel(i, j, color);
+		}
+	}
 }
 
 Texture::Texture(std::string FilePath, Color AlphaColor)
