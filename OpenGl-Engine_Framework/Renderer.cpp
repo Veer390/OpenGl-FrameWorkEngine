@@ -68,6 +68,13 @@ void RendererNS::Renderer::DrawFontAutoLine(int RenderValue, vector ScreenCoordi
 
 
 
+void RendererNS::Renderer::DrawANimation(Animation& Anim,vector ScreenCoordinates)
+{
+	auto x = Anim.GetFrame();
+	//gfx->DrawTexture(ScreenCoordinates, x.PayloadRectangle,*(x.tex));
+	gfx->DrawTexture(ScreenCoordinates,x.PayloadRectangle,*x.tex);
+}
+
 void RendererNS::Renderer::print(vector ScreenLocation, std::string Test, Font * font)
 {
 	vector TempScreenLocation = ScreenLocation;

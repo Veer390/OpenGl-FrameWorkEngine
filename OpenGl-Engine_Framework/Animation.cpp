@@ -1,6 +1,6 @@
 #include "Animation.h"
 
-Animation::Animation(std::string name, std::vector<DataStructure::RectangleAndIndex_Animation> FramesInTextureAlongWithTextureNumber,
+Animation::Animation(std::string name, std::vector<DataStructure::RectangleAndTextureIndex_Animation> FramesInTextureAlongWithTextureNumber,
 	                 std::vector<Texture*> TextureArray)
 	:
 	name(name),
@@ -20,4 +20,18 @@ RectangleCoordinatesWithTexturePointer Animation::GetFrame()
 
 	IncrementFramePointer();
 	return Temp;
+}
+
+void Animation::SetAnimation(std::vector<DataStructure::RectangleAndTextureIndex_Animation> AnimationRectanglesWithTextureIndex)
+{
+	FramesInTextureAlongWithTextureNumber.clear();
+	for (auto i : AnimationRectanglesWithTextureIndex)
+	{
+		FramesInTextureAlongWithTextureNumber.push_back(i);
+	}
+}
+
+void Animation::SetTextureArray(std::vector<Texture*> TexturePointerArray)
+{
+	TextureArray.push_back(TexturePointerArray[0]);
 }

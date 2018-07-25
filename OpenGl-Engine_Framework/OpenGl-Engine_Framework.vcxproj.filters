@@ -86,8 +86,5 @@
     <ClInclude Include="Animation.h">
       <Filter>Graphics\RendererSpecific Utilitites</Filter>
     </ClInclude>
-    <ClInclude Include="RectangleAndIndex_Animation.h">
-      <Filter>Data Structures</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

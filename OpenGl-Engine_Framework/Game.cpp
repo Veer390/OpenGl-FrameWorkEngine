@@ -42,6 +42,10 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
+	//gfx.DrawTexture(20, 30, AnimTest);
+	texVec.push_back(&AnimTest);
+	Anim.SetTextureArray(texVec);
+	SetRectangleAndFrameNumber();
 	//texVec[0] = &AnimTest;
 	//SetRectangleAndFrameNumber();
 
@@ -51,9 +55,9 @@ void Game::ComposeFrame()
 	//MainRenderer.DrawTexture(m, { 30,20 });
 	//MainRenderer.DrawTexture(n, { 50,60 });
 
-	int o = MainRenderer.SetNewFont(fnt);
-	int p = MainRenderer.SetNewTexture(Dib);
-	MainRenderer.DrawTexture(p, { 20,30 });
+	//int o = MainRenderer.SetNewFont(fnt);
+	//int p = MainRenderer.SetNewTexture(Dib);
+	//MainRenderer.DrawTexture(p, { 20,30 });
 	//gfx.print({ 20,30 }, " 8Ph!9Qi\n:Rj#; Sk$<Tl %= Um\n & >Vn'?Wo(@Xp)AYq*BZr+C[s,\nD\t-E]u.F^v/G_w0H`x1\nIay2Jbz3Kc{4Ld|5\nMe}6Nf~7Og", &fnt);
 	//gfx.print({ 20,30 }, "k",&fnt);
 	//int a = MainRenderer.SetNewTexture(Dib);
@@ -66,18 +70,21 @@ void Game::ComposeFrame()
 	//gfx.DrawTextureWithAlpha(30, 20, Dib);
 
 	//gfx.print({ 20,30 }, "Empyrean Veer \nEmhyr", &fnt);
-
+	MainRenderer.DrawANimation(Anim, { 20,30 });
 	//gfx.PutPixel(250, 250, Color(255, 255, 255));
+	texVec.clear();
 }
 
 void Game::DrawFrame()
 {
+	
 	//DrawFrameNumber();
 
 }
 
 void Game::SetRectangleAndFrameNumber()
 {
+	
 	int c = 0;
 	static vector TR_S = { 0,0 };
 	static vector TL_S = { 64,0 };
@@ -92,9 +99,18 @@ void Game::SetRectangleAndFrameNumber()
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			DataStructure::Rectangle re(TL, TR, BL, BR);
-			TestAnimationBoxAndTextureNumber[i*j].RectangleBoxPayload = re;
-			TestAnimationBoxAndTextureNumber[i*j].TextureNumber = 0;
+			//REal
+			//DataStructure::Rectangle re(TL, TR, BL, BR);
+
+			//Alternative
+			DataStructure::Rectangle re(TR, TL, BL, BR);
+			//TestAnimationBoxAndTextureNumber[i*j].RectangleBoxPayload = re;
+			//TestAnimationBoxAndTextureNumber[i*j].TextureNumber = 0;
+
+			//Alternative
+			TestAnimationBoxAndTextureNumber.push_back(DataStructure::RectangleAndTextureIndex_Animation(re, 0));
+			
+			//Standrad
 			TR.y = TR.y + 64;
 			TL.y = TL.y + 64;
 			BR.y = BR.y + 64;
@@ -111,7 +127,9 @@ void Game::SetRectangleAndFrameNumber()
 		BR.x = BR.x + 64;
 		
 	}
-
+	
+	Anim.SetAnimation(TestAnimationBoxAndTextureNumber);
+	TestAnimationBoxAndTextureNumber.clear();
 }
 
 

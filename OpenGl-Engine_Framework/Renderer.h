@@ -10,6 +10,8 @@
 #include "Line.h"
 #include "Graphics.h"
 
+#include "Animation.h"
+
 namespace RendererNS
 {
 	class Renderer
@@ -57,6 +59,8 @@ namespace RendererNS
 		void DrawFontAutoLine(int RenderValue, vector ScreenCoordinates, std::string Message);
 		
 
+	public:
+		void DrawANimation(Animation& Anim,vector ScreenCoordinates);
 	private:
 		void print(vector ScreenLocation, std::string Test, Font * font);
 		void printAutoLine(vector ScreenLocation, std::string Test, Font * font);
