@@ -122,3 +122,8 @@ void RendererNS::Renderer::printAutoLine(vector ScreenLocation, std::string Test
 		}
 	}
 }
+
+inline Texture * RendererNS::Renderer::GetTexture(int RendererTextureNumber)
+{
+	return &(Textures[RendererTextureNumber]);
+}

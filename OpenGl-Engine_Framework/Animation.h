@@ -6,17 +6,20 @@
 #include "rectangle.h"
 #include "Texture.h"
 
-struct RectangleCoordinatesWithTexturePointer
+namespace DataStructure 
 {
-	RectangleCoordinatesWithTexturePointer()
-		:
-		PayloadRectangle({0,0}, { 0,0 }, { 0,0 }, { 0,0 })
+	struct RectangleCoordinatesWithTexturePointer
 	{
+		RectangleCoordinatesWithTexturePointer()
+			:
+			PayloadRectangle({ 0,0 }, { 0,0 }, { 0,0 }, { 0,0 })
+		{
 
-	}
-	DataStructure::Rectangle PayloadRectangle;
-	Texture* tex;
-};
+		}
+		DataStructure::Rectangle PayloadRectangle;
+		Texture* tex;
+	};
+}
 
 namespace DataStructure
 {
@@ -66,9 +69,12 @@ public:
 		return FramePointer;
 	}
 
-	RectangleCoordinatesWithTexturePointer GetFrame();
+	DataStructure::RectangleCoordinatesWithTexturePointer GetFrame();
 
 	//Not intended to be used
 	void SetAnimation(std::vector<DataStructure::RectangleAndTextureIndex_Animation> AnimationRectanglesWithTextureIndex);
 	void SetTextureArray(std::vector<Texture*> TexturePointerArray);
+
+public:
+	std::string GetName();
 };

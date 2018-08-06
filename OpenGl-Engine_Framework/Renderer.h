@@ -58,12 +58,16 @@ namespace RendererNS
 		void DrawFont(int RenderValue, vector ScreenCoordinates,std::string Message);
 		void DrawFontAutoLine(int RenderValue, vector ScreenCoordinates, std::string Message);
 		
-
+		
 	public:
 		void DrawANimation(Animation& Anim,vector ScreenCoordinates);
 	private:
 		void print(vector ScreenLocation, std::string Test, Font * font);
 		void printAutoLine(vector ScreenLocation, std::string Test, Font * font);
+
+	public:
+		//HElper Functions
+		inline Texture* GetTexture(int RendererTextureNumber);//REturns POinter To The Texture Stored In Renderer
 	};
 }
 

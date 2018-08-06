@@ -10,9 +10,9 @@ Animation::Animation(std::string name, std::vector<DataStructure::RectangleAndTe
 
 }
 
-RectangleCoordinatesWithTexturePointer Animation::GetFrame()
+DataStructure::RectangleCoordinatesWithTexturePointer Animation::GetFrame()
 {
-	RectangleCoordinatesWithTexturePointer Temp;
+	DataStructure::RectangleCoordinatesWithTexturePointer Temp;
 
 	//Check These Two Lines For any Problems...
 	Temp.PayloadRectangle = FramesInTextureAlongWithTextureNumber[FramePointer - 1].RectangleBoxPayload;
@@ -34,4 +34,9 @@ void Animation::SetAnimation(std::vector<DataStructure::RectangleAndTextureIndex
 void Animation::SetTextureArray(std::vector<Texture*> TexturePointerArray)
 {
 	TextureArray.push_back(TexturePointerArray[0]);
+}
+
+std::string Animation::GetName()
+{
+	return name;
 }

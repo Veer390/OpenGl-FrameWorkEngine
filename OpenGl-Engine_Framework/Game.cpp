@@ -42,7 +42,10 @@ void Game::main()
 
 void Game::ComposeFrame()
 {
+	//gfx.PutPixel(20, 20, { 255,255,255 });
 	//gfx.DrawTexture(20, 30, AnimTest);
+	int o = MainRenderer.SetNewFont(fnt);
+	MainRenderer.DrawFontAutoLine(o, { 135,135 }, "Asish ");
 	texVec.push_back(&AnimTest);
 	Anim.SetTextureArray(texVec);
 	SetRectangleAndFrameNumber();
@@ -55,7 +58,6 @@ void Game::ComposeFrame()
 	//MainRenderer.DrawTexture(m, { 30,20 });
 	//MainRenderer.DrawTexture(n, { 50,60 });
 
-	//int o = MainRenderer.SetNewFont(fnt);
 	//int p = MainRenderer.SetNewTexture(Dib);
 	//MainRenderer.DrawTexture(p, { 20,30 });
 	//gfx.print({ 20,30 }, " 8Ph!9Qi\n:Rj#; Sk$<Tl %= Um\n & >Vn'?Wo(@Xp)AYq*BZr+C[s,\nD\t-E]u.F^v/G_w0H`x1\nIay2Jbz3Kc{4Ld|5\nMe}6Nf~7Og", &fnt);
